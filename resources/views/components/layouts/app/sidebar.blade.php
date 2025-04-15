@@ -11,10 +11,39 @@
                 <x-app-logo />
             </a>
 
+            {{-- <flux:input as="button" variant="filled" placeholder="Search..." icon="magnifying-glass" /> --}}
+
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
                 </flux:navlist.group>
+
+                <flux:navlist.group :heading="__('Gestion')" class="grid">
+                    <flux:navlist.group expandable heading="Usuarios" class="grid">
+                        <flux:navlist.item icon="user-group" :href="route('dashboard')" :current="request()->routeIs('')" wire:navigate>{{ __('Aspirantes') }}</flux:navlist.item>
+                        <flux:navlist.item icon="user-circle" :href="route('dashboard')" :current="request()->routeIs('')" wire:navigate>{{ __('Pacientes') }}</flux:navlist.item>
+                        <flux:navlist.item icon="clipboard-document-check" :href="route('dashboard')" :current="request()->routeIs('')" wire:navigate>{{ __('Terapeutas') }}</flux:navlist.item>
+                    </flux:navlist.group>
+
+                    <flux:navlist.group expandable heading="Citas" class="grid">
+                        <flux:navlist.item icon="calendar-days" :href="route('dashboard')" :current="request()->routeIs('')" wire:navigate>{{ __('Citas pendientes') }}</flux:navlist.item>
+                        <flux:navlist.item icon="clipboard-document-check" :href="route('dashboard')" :current="request()->routeIs('')" wire:navigate>{{ __('Citas completadas') }}</flux:navlist.item>
+                    </flux:navlist.group>
+
+                    <flux:navlist.group expandable heading="Certificados" class="grid">
+                        <flux:navlist.item icon="calendar-days" :href="route('dashboard')" :current="request()->routeIs('')" wire:navigate>{{ __('Citas realizadas') }}</flux:navlist.item>
+                        <flux:navlist.item icon="clipboard-document-check" :href="route('dashboard')" :current="request()->routeIs('')" wire:navigate>{{ __('Asistencia general') }}</flux:navlist.item>
+                    </flux:navlist.group>
+
+                    <flux:navlist.group expandable heading="Recursos" class="grid">
+                        <flux:navlist.item icon="heart" :href="route('dashboard')" :current="request()->routeIs('')" wire:navigate>{{ __('Terapias') }}</flux:navlist.item>
+                        <flux:navlist.item icon="clock" :href="route('dashboard')" :current="request()->routeIs('')" wire:navigate>{{ __('Horarios') }}</flux:navlist.item>
+                        <flux:navlist.item icon="map-pin" :href="route('dashboard')" :current="request()->routeIs('')" wire:navigate>{{ __('Direcciones') }}</flux:navlist.item>
+                    </flux:navlist.group>
+
+                    
+                </flux:navlist.group>
+
             </flux:navlist>
 
             <flux:spacer />
@@ -24,9 +53,9 @@
                 {{ __('Repository') }}
                 </flux:navlist.item>
 
-                <flux:navlist.item icon="book-open-text" href="https://laravel.com/docs/starter-kits" target="_blank">
+                {{-- <flux:navlist.item icon="book-open-text" href="https://laravel.com/docs/starter-kits" target="_blank">
                 {{ __('Documentation') }}
-                </flux:navlist.item>
+                </flux:navlist.item> --}}
             </flux:navlist>
 
             <!-- Desktop User Menu -->
